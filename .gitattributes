@@ -13,5 +13,6 @@ scripts/
 .DS_Store
 LICENSE
 package.json
+package-lock.json
 index.html
 js/

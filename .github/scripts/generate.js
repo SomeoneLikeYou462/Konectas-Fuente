@@ -51,7 +51,7 @@ const iterateDirectory = (startPath, relativePath = ".") => {
     const relativeFilePath = path.join(relativePath, file);
     if (fs.statSync(filePath).isDirectory()) {
       if (
-        !ignoredFiles.includes(
+        ignoredFiles.includes(
           `${filePath.split("/")[filePath.split("/").length - 1]}/`
         )
       ) {
