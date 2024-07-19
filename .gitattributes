@@ -1,0 +1,17 @@
+.env.example
+.github/
+tests/
+.gitattributes
+.gitignore
+.pylintrc
+codecov.yml
+Makefile
+requirements.txt
+brands/
+scripts/
+.git
+.DS_Store
+LICENSE
+package.json
+index.html
+js/
