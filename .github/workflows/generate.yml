@@ -23,3 +23,6 @@ jobs:
           git add .
           git commit -m ":robot: HTML files generated"
           git push
+
+      - name: Deploy GitHub Pages site
+        uses: actions/deploy-pages@v4.0.5
