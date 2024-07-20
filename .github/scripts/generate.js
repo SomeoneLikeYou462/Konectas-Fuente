@@ -13,8 +13,12 @@ const ignoredFiles = fs
 const generateHtmlList = (folderPath) => {
   try {
     const files = fs.readdirSync(folderPath);
-
-    let htmlContent = "";
+    let htmlContent = `
+<html>
+ <head>
+ <h1>Konectas Fuente</h1>
+ </head>
+ <body><ul>`;
     files.forEach((file) => {
       if (ignoredFiles.includes(file)) {
         return;
@@ -25,7 +29,7 @@ const generateHtmlList = (folderPath) => {
         "%20"
       )}">${file}</a></li>\n`;
     });
-
+    htmlContent += "</ul>";
     return htmlContent;
   } catch (error) {
     console.error("Error reading directory:", error);
