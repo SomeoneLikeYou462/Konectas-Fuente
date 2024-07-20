@@ -13,23 +13,18 @@ const ignoredFiles = fs
 const generateHtmlList = (folderPath) => {
   try {
     const files = fs.readdirSync(folderPath);
-    let htmlContent = `
-<html>
- <head>
- <h1>Konectas Fuente</h1>
- </head>
- <body><ul>`;
+    let htmlContent = ``;
     files.forEach((file) => {
       if (ignoredFiles.includes(file)) {
         return;
       }
       if (ignoredFiles.includes(`${file}/`)) return;
-      htmlContent += `<li><a href="${file.replace(
-        /\s/g,
-        "%20"
-      )}">${file}</a></li>\n`;
+      const filePath = path.join(folderPath, file);
+      htmlContent += `<li><a href="${file.replace(/\s/g, "%20")}${
+        fs.statSync(filePath).isDirectory() ? "/" : ""
+      }">${file}</a></li>\n`;
     });
-    htmlContent += "</ul>";
+
     return htmlContent;
   } catch (error) {
     console.error("Error reading directory:", error);
