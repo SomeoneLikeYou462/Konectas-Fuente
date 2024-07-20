@@ -7,10 +7,6 @@ jobs:
   build:
     name: Generate Konectas Source
     runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      pages: write
-      id-token: write
     steps:
       - name: Configure NodeJS
         uses: actions/setup-node@v1
