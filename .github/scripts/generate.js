@@ -20,7 +20,10 @@ const generateHtmlList = (folderPath) => {
         return;
       }
       if (ignoredFiles.includes(`${file}/`)) return;
-      htmlContent += `<li><a href="${file}">${file}</a></li>\n`;
+      htmlContent += `<li><a href="${file.replace(
+        /\s/g,
+        "%20"
+      )}">${file}</a></li>\n`;
     });
 
     return htmlContent;
